@@ -13,7 +13,10 @@ public class StartMenu : MonoBehaviour
     // 1. Nút Bắt Đầu: Chuyển sang Scene game
     public void OnStartButtonClicked()
     {
-        SceneManager.LoadScene("Level1_TinyOcean");
+        PlayerPrefs.SetInt("StarfishCount", 0);
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene("Level2_TinyOcean");
     }
 
     // 2. Nút Hướng Dẫn: Hiển thị Panel hướng dẫn tay cầm VR
