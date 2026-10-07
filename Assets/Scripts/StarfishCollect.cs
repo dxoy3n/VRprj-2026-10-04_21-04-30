@@ -3,27 +3,27 @@ using UnityEngine.EventSystems;
 
 public class StarfishCollect : MonoBehaviour, IPointerClickHandler
 {
-    // Bắn tia Ray / Nhấp chuột vào sao biển
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("STARFISH CLICKED: " + gameObject.name);
         Collect();
     }
 
-    // Hoặc nếu dùng OnMouseDown
     private void OnMouseDown()
     {
+        Debug.Log("STARFISH MOUSE DOWN: " + gameObject.name);
         Collect();
     }
 
     void Collect()
     {
-        // Gọi hàm cộng điểm bên StarfishManager
+        Debug.Log("COLLECT STARFISH: " + gameObject.name);
+
         if (StarfishManager.Instance != null)
         {
             StarfishManager.Instance.AddStarfish();
         }
 
-        // Biến mất con sao biển vừa nhặt
         Destroy(gameObject);
     }
 }
