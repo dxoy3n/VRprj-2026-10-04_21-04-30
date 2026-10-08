@@ -11,7 +11,6 @@ public class KeyEffects : MonoBehaviour
 
     [Header("Tự động biến mất")]
     public float destroyDelay = 5f;
-
     void OnEnable()
     {
         // Hủy các lệnh hẹn giờ cũ nếu có để tránh bị biến mất sai thời điểm

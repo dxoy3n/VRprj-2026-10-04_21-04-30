@@ -52,15 +52,15 @@ public class StarfishManager : MonoBehaviour
         // 2. Tự động tìm keyObject và arrowGuide trong Scene mới nếu bồ gắn Tag cho chúng
         if (keyObject == null)
         {
-            GameObject foundKey = GameObject.FindWithTag("KeyObject");
+            GameObject foundKey = GameObject.FindWithTag("keyObject");
             if (foundKey != null) keyObject = foundKey;
         }
 
-        if (arrowGuide == null)
-        {
-            GameObject foundArrow = GameObject.FindWithTag("ArrowGuide");
-            if (foundArrow != null) arrowGuide = foundArrow;
-        }
+        //   if (arrowGuide == null)
+        //{
+        //    GameObject foundArrow = GameObject.FindWithTag("ArrowGuide");
+        //      if (foundArrow != null) arrowGuide = foundArrow;
+        //  }
 
         // 3. Cập nhật trạng thái
         UpdateStarfishUI();
@@ -72,12 +72,11 @@ public class StarfishManager : MonoBehaviour
     {
 #if UNITY_EDITOR
         // Mở comment dòng này nếu muốn mỗi lần Play Editor là đếm lại từ 0
-        // PlayerPrefs.SetInt("StarfishCount", 0);
-        // PlayerPrefs.Save();
+        PlayerPrefs.SetInt("StarfishCount", 0);
+        PlayerPrefs.Save();
 #endif
         UpdateStarfishUI();
         CheckLevel2Progress();
-        CheckKeyUnlock();
     }
 
     public void AddStarfish()
@@ -105,28 +104,31 @@ public class StarfishManager : MonoBehaviour
         int currentCount = PlayerPrefs.GetInt("StarfishCount", 0);
         if (SceneManager.GetActiveScene().name == "Level2_TinyOcean")
         {
-            if (arrowGuide != null) 
+            if (arrowGuide != null)
                 arrowGuide.SetActive(currentCount >= level2StarfishTarget);
         }
         else
         {
-            if (arrowGuide != null) 
+            if (arrowGuide != null)
                 arrowGuide.SetActive(false);
         }
     }
 
     void CheckKeyUnlock()
     {
+        int currentCount = PlayerPrefs.GetInt("StarfishCount", 0);
+        Debug.Log("CheckKeyUnlock - Scene: " + SceneManager.GetActiveScene().name + ", StarfishCount: " + currentCount + ", keyObject: " + (keyObject != null ? "assigned" : "NULL"));
+
         if (SceneManager.GetActiveScene().name != "Level3_TinyOcean")
         {
+            Debug.Log("Not in Level3, turning off key");
             if (keyObject != null) keyObject.SetActive(false);
             return;
         }
 
-        int currentCount = PlayerPrefs.GetInt("StarfishCount", 0);
-
         if (currentCount >= totalStarfishNeeded)
         {
+            Debug.Log("Enough starfish (" + currentCount + " >= " + totalStarfishNeeded + "), enabling key!");
             if (keyObject != null)
             {
                 keyObject.SetActive(true);
@@ -141,10 +143,15 @@ public class StarfishManager : MonoBehaviour
                     keyObject.transform.rotation = mainCam.transform.rotation;
                 }
             }
+            else
+            {
+                Debug.LogError("keyObject is NULL! Not assigned in Inspector!");
+            }
         }
         else
         {
-            if (keyObject != null) 
+            Debug.Log("Not enough starfish yet (" + currentCount + " < " + totalStarfishNeeded + ")");
+            if (keyObject != null)
                 keyObject.SetActive(false);
         }
     }

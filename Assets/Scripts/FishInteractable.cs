@@ -1,8 +1,11 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+// using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
+//[RequireComponent(typeof(XRSimpleInteractable))]
 public class FishInteractable : MonoBehaviour
 {
     [Header("1. Dữ liệu riêng con cá này")]
@@ -32,10 +35,13 @@ public class FishInteractable : MonoBehaviour
     private bool isInspecting = false;
     private Coroutine currentMoveCoroutine;
 
+    //private XRSimpleInteractable interactable;
+   // private IdleHintSystem idleHint;
     void Start()
     {
         if (infoPanel != null)
             infoPanel.SetActive(false);
+        //idleHint = FindFirstObjectByType<IdleHintSystem>();
     }
 
     void Update()
@@ -75,6 +81,7 @@ public class FishInteractable : MonoBehaviour
 
     public void ToggleInspect()
     {
+        // if (idleHint != null) idleHint.NotifyPlayerActivity();
         isInspecting = !isInspecting;
 
         if (currentMoveCoroutine != null)
@@ -112,6 +119,7 @@ public class FishInteractable : MonoBehaviour
 
     public void CloseInspect()
     {
+        //if (idleHint != null) idleHint.NotifyPlayerActivity();
         isInspecting = false;
 
         // Tắt voice ngay khi đóng Panel

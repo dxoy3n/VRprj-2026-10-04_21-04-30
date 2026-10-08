@@ -3,6 +3,8 @@ using UnityEngine.EventSystems;
 
 public class StarfishCollect : MonoBehaviour, IPointerClickHandler
 {
+    private bool isCollected;
+
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("STARFISH CLICKED: " + gameObject.name);
@@ -17,13 +19,19 @@ public class StarfishCollect : MonoBehaviour, IPointerClickHandler
 
     void Collect()
     {
+        if (isCollected)
+            return;
+
         Debug.Log("COLLECT STARFISH: " + gameObject.name);
 
-        if (StarfishManager.Instance != null)
+        if (StarfishManager.Instance == null)
         {
-            StarfishManager.Instance.AddStarfish();
+            Debug.LogError("Không tìm thấy StarfishManager trong scene.");
+            return;
         }
 
+        isCollected = true;
+        StarfishManager.Instance.AddStarfish();
         Destroy(gameObject);
     }
 }
