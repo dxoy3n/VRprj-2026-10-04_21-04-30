@@ -1,9 +1,26 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable))]
 public class StarfishCollect : MonoBehaviour, IPointerClickHandler
 {
     private bool isCollected;
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable xrInteractable;
+
+    private void Awake()
+    {
+        xrInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable>();
+        xrInteractable.selectEntered.AddListener(OnXRSelected);
+    }
+
+    private void OnDestroy()
+    {
+        if (xrInteractable != null)
+        {
+            xrInteractable.selectEntered.RemoveListener(OnXRSelected);
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -17,12 +34,16 @@ public class StarfishCollect : MonoBehaviour, IPointerClickHandler
         Collect();
     }
 
-    void Collect()
+    private void OnXRSelected(SelectEnterEventArgs args)
+    {
+        Debug.Log("STARFISH XR SELECTED: " + gameObject.name);
+        Collect();
+    }
+
+    private void Collect()
     {
         if (isCollected)
             return;
-
-        Debug.Log("COLLECT STARFISH: " + gameObject.name);
 
         if (StarfishManager.Instance == null)
         {
@@ -31,7 +52,11 @@ public class StarfishCollect : MonoBehaviour, IPointerClickHandler
         }
 
         isCollected = true;
+
+        Debug.Log("COLLECT STARFISH: " + gameObject.name);
+
         StarfishManager.Instance.AddStarfish();
         Destroy(gameObject);
     }
 }
+
