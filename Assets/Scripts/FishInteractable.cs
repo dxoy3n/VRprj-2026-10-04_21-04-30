@@ -2,10 +2,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
-// using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-//[RequireComponent(typeof(XRSimpleInteractable))]
+[RequireComponent(typeof(XRSimpleInteractable))]
 public class FishInteractable : MonoBehaviour
 {
     [Header("1. Dữ liệu riêng con cá này")]
@@ -35,31 +35,59 @@ public class FishInteractable : MonoBehaviour
     private bool isInspecting = false;
     private Coroutine currentMoveCoroutine;
 
-    //private XRSimpleInteractable interactable;
-   // private IdleHintSystem idleHint;
+    private XRSimpleInteractable xrInteractable;
+
+    void Awake()
+    {
+        xrInteractable = GetComponent<XRSimpleInteractable>();
+    }
+
+    void OnEnable()
+    {
+        // Đăng ký sự kiện bắn tia VR bấm trúng cá
+        if (xrInteractable != null)
+        {
+            xrInteractable.selectEntered.AddListener(OnVRSelectEntered);
+        }
+    }
+
+    void OnDisable()
+    {
+        // Hủy đăng ký sự kiện tránh rò rỉ bộ nhớ
+        if (xrInteractable != null)
+        {
+            xrInteractable.selectEntered.RemoveListener(OnVRSelectEntered);
+        }
+    }
+
     void Start()
     {
         if (infoPanel != null)
             infoPanel.SetActive(false);
-        //idleHint = FindFirstObjectByType<IdleHintSystem>();
     }
 
     void Update()
     {
         Camera cam = Camera.main;
 
-        // Xoay Panel UI hướng về phía Camera
+        // Xoay Panel UI hướng về phía Camera (Billboard cho VR)
         if (isInspecting && infoPanel != null && infoPanel.activeSelf && cam != null)
         {
             infoPanel.transform.LookAt(infoPanel.transform.position + cam.transform.rotation * Vector3.forward,
                                        cam.transform.rotation * Vector3.up);
         }
 
-        // Bắt click chuột trái
+        // Bắt click chuột trái trên PC (Dùng để test nhanh không cần tay cầm)
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
             CheckMouseClickOnFish();
         }
+    }
+
+    // Sự kiện gọi tự động khi bấm bằng Tay Cầm VR (Trigger / L Mouse trên Simulator)
+    private void OnVRSelectEntered(SelectEnterEventArgs args)
+    {
+        ToggleInspect();
     }
 
     private void CheckMouseClickOnFish()
@@ -81,7 +109,6 @@ public class FishInteractable : MonoBehaviour
 
     public void ToggleInspect()
     {
-        // if (idleHint != null) idleHint.NotifyPlayerActivity();
         isInspecting = !isInspecting;
 
         if (currentMoveCoroutine != null)
@@ -119,7 +146,6 @@ public class FishInteractable : MonoBehaviour
 
     public void CloseInspect()
     {
-        //if (idleHint != null) idleHint.NotifyPlayerActivity();
         isInspecting = false;
 
         // Tắt voice ngay khi đóng Panel
