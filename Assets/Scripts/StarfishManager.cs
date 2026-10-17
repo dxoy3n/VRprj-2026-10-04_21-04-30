@@ -13,7 +13,7 @@ public class StarfishManager : MonoBehaviour
 
     [Header("Settings")]
     public int totalStarfishNeeded = 6;
-    public int level2StarfishTarget = 3;
+    public int level1StarfishTarget = 3;
 
     void Awake()
     {
@@ -47,8 +47,8 @@ public class StarfishManager : MonoBehaviour
             starfishText = FindFirstObjectByType<TextMeshProUGUI>();
         }
 
-        // 2. Tìm Chìa Khóa an toàn trong Scene 3 (Tìm theo tên chứa chữ 'key' - Không sợ lỗi Tag)
-        if (keyObject == null && scene.name == "Level3_TinyOcean")
+        // 2. Tìm Chìa Khóa an toàn trong Scene 2 (Tìm theo tên chứa chữ 'key' - Không sợ lỗi Tag)
+        if (keyObject == null && scene.name == "Level2_TinyOcean")
         {
             foreach (GameObject root in scene.GetRootGameObjects())
             {
@@ -68,22 +68,22 @@ public class StarfishManager : MonoBehaviour
 
         // 3. Cập nhật UI & Kiểm tra điều kiện mở khóa
         UpdateStarfishUI();
-        CheckLevel2Progress();
+        CheckLevel1Progress();
         CheckKeyUnlock();
     }
 
     void Start()
     {
 #if UNITY_EDITOR
-        // Chỉ reset điểm về 0 nếu bắt đầu Play từ Level 2
-        if (SceneManager.GetActiveScene().name == "Level2_TinyOcean")
+        // Chỉ reset điểm về 0 nếu bắt đầu Play từ Level 1
+        if (SceneManager.GetActiveScene().name == "Level1_TinyOcean")
         {
             PlayerPrefs.SetInt("StarfishCount", 0);
             PlayerPrefs.Save();
         }
 #endif
         UpdateStarfishUI();
-        CheckLevel2Progress();
+        CheckLevel1Progress();
         CheckKeyUnlock();
     }
 
@@ -94,7 +94,7 @@ public class StarfishManager : MonoBehaviour
         PlayerPrefs.Save();
 
         UpdateStarfishUI();
-        CheckLevel2Progress();
+        CheckLevel1Progress();
         CheckKeyUnlock();
     }
 
@@ -107,13 +107,13 @@ public class StarfishManager : MonoBehaviour
         }
     }
 
-    void CheckLevel2Progress()
+    void CheckLevel1Progress()
     {
         int currentCount = PlayerPrefs.GetInt("StarfishCount", 0);
-        if (SceneManager.GetActiveScene().name == "Level2_TinyOcean")
+        if (SceneManager.GetActiveScene().name == "Level1_TinyOcean")
         {
             if (arrowGuide != null)
-                arrowGuide.SetActive(currentCount >= level2StarfishTarget);
+                arrowGuide.SetActive(currentCount >= level1StarfishTarget);
         }
         else
         {
@@ -126,8 +126,8 @@ public class StarfishManager : MonoBehaviour
     {
         int currentCount = PlayerPrefs.GetInt("StarfishCount", 0);
 
-        // Nếu không phải Level 3 thì ép ẩn chìa khóa
-        if (SceneManager.GetActiveScene().name != "Level3_TinyOcean")
+        // Nếu không phải Level 2 thì ép ẩn chìa khóa
+        if (SceneManager.GetActiveScene().name != "Level2_TinyOcean")
         {
             if (keyObject != null) keyObject.SetActive(false);
             return;
@@ -153,7 +153,7 @@ public class StarfishManager : MonoBehaviour
             }
             else
             {
-                Debug.LogError("keyObject is NULL! Không tìm thấy GameObject nào có tên chứa chữ 'key' ở Scene 3!");
+                Debug.LogError("keyObject is NULL! Không tìm thấy GameObject nào có tên chứa chữ 'key' ở Scene 2!");
             }
         }
         else
