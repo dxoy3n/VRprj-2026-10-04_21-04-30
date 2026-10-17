@@ -89,7 +89,7 @@ public class ChestScript : MonoBehaviour
                 Reward.SetActive(true);
             }
 
-            Debug.Log("Đã mở rương thành công và nhận voucher 36%!");
+            Debug.Log("Đã mở rương thành công");
         }
     }
 
