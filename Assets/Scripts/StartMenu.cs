@@ -7,8 +7,8 @@ public class StartMenu : MonoBehaviour
     public GameObject mainMenuPanel;     // Kéo Menu chính (chứa các nút) vào đây
     public GameObject instructionsPanel; // Kéo Panel Hướng dẫn vào đây
 
-    [Header("Scene Settings")]
-    public string gameSceneName = "SampleScene"; // Đổi tên thành tên Scene game chính của bạn
+    //[Header("Scene Settings")]
+   // public string gameSceneName = "SampleScene"; // Đổi tên thành tên Scene game chính của bạn
 
     // 1. Nút Bắt Đầu: Chuyển sang Scene game
     public void OnStartButtonClicked()
@@ -16,7 +16,7 @@ public class StartMenu : MonoBehaviour
         PlayerPrefs.SetInt("StarfishCount", 0);
         PlayerPrefs.Save();
 
-        SceneManager.LoadScene("Level2_TinyOcean");
+        SceneManager.LoadScene("Level1_TinyOcean");
     }
 
     // 2. Nút Hướng Dẫn: Hiển thị Panel hướng dẫn tay cầm VR
