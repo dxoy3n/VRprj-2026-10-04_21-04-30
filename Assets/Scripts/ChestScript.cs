@@ -71,25 +71,34 @@ public class ChestScript : MonoBehaviour
         {
             isOpened = true;
 
-            // 1. Kích hoạt hiệu ứng mở rương (Animator hoặc Xoay nắp)
-         //   if (chestAnimator != null)
-         //   {
-         //       chestAnimator.SetTrigger(openTriggerName);
-         //   }
+            // 1. MỞ NẮP RƯƠNG
+            if (lid != null)
+            {
+                lid.OpenLid();
+            }
+            else
+            {
+                Debug.LogError("Chưa kéo ChestLid vào ô Lid trong ChestScript!");
+            }
 
-            // 2. Tắt Panel lựa chọn (Yes/No) đi
+            // 2. Tắt Panel Yes/No
             if (ChestPanel != null)
             {
                 ChestPanel.SetActive(false);
             }
 
-            // 3. Hiển thị bảng chứa ảnh voucher mới lên màn hình
-            if (Reward != null)
-            {
-                Reward.SetActive(true);
-            }
+            // 3. Hiện voucher sau 1.5 giây để kịp thấy nắp mở
+            Invoke("ShowReward", 1.5f);
 
             Debug.Log("Đã mở rương thành công");
+        }
+    }
+
+    void ShowReward()
+    {
+        if (Reward != null)
+        {
+            Reward.SetActive(true);
         }
     }
 

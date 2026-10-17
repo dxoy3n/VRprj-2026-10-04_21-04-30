@@ -821,6 +821,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4c1320948ad7e40b236c204fdf4ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &171603752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171603746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0612fe5ba7cd8248bb37c1a6c6084ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surfaceY: 5.7
+  startAboveSurface: 0.5
+  startDelay: 1
+  duration: 10
+  smooth: 1
+  lockMovement:
+  - {fileID: 956115404}
+  - {fileID: 765081804}
 --- !u!1 &173080974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,7 +1246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: 06534dadc2bf790419cd7de0e7850940, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.178
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: 06534dadc2bf790419cd7de0e7850940, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4409,7 +4429,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 0
       minColor: {r: 0.08805263, g: 0.24185096, b: 0.5622641, a: 1}
       maxColor: {r: 1, g: 0.9260572, b: 0.45098042, a: 1}
       maxGradient:
@@ -4475,8 +4495,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.8
-      minScalar: 1.5
+      scalar: 1.6
+      minScalar: 1.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4792,7 +4812,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 50
+    maxNumParticles: 30
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 1
@@ -5546,15 +5566,15 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 3
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0.31772864, g: 0.43439218, b: 0.9622642, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -5579,12 +5599,12 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0.96981126, g: 0.919188, b: 0.4226913, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -5609,7 +5629,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
@@ -9323,6 +9343,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -3910990755373119420, guid: eb4024f43e005f24986b3d35a4c85dea, type: 3}
   m_PrefabInstance: {fileID: 1966546724}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &765081804 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 153982007679157697, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 1842855902}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1e8c997df241c1a67045eeac79b41b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &767727784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10963,6 +10994,17 @@ MonoBehaviour:
   moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 2046571166}
+--- !u!114 &956115404 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1748222016861356527, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 1842855902}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &956211337
 GameObject:
   m_ObjectHideFlags: 0
@@ -11193,9 +11235,9 @@ MonoBehaviour:
   audioSource: {fileID: 987359216}
   distanceFromCamera: 4
   heightOffset: 0
-  panelOffsetX: 2.5
-  panelOffsetY: 1
-  moveDuration: 2
+  panelOffsetX: 2.6
+  panelOffsetY: 0.8
+  moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 987359219}
 --- !u!114 &987359219
@@ -14825,12 +14867,12 @@ MonoBehaviour:
   panelImageHolder: {fileID: 1319238697}
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
-  audioSource: {fileID: 1422442414}
+  audioSource: {fileID: 743111785}
   distanceFromCamera: 2.5
-  heightOffset: 0.1
+  heightOffset: 0.3
   panelOffsetX: 2
   panelOffsetY: -0.3
-  moveDuration: 2
+  moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 1422442419}
 --- !u!114 &1422442419
@@ -14846,7 +14888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerPosition: {x: 0, y: 0, z: 0}
-  swimAreaSize: {x: 15, y: 4, z: 15}
+  swimAreaSize: {x: 15, y: 3, z: 15}
   swimSpeed: 1.5
   rotationSpeed: 1.5
   reachDistance: 1.5
@@ -15272,7 +15314,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 0
       minColor: {r: 0.08627451, g: 0.36665714, b: 0.56078434, a: 1}
       maxColor: {r: 0.7207546, g: 0, b: 0.5849409, a: 1}
       maxGradient:
@@ -15655,7 +15697,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 50
+    maxNumParticles: 40
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 1
@@ -16409,16 +16451,16 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 3
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0.25471687, g: 0.9230751, b: 1, a: 1}
+        key1: {r: 0.25471687, g: 0.9230751, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -16442,12 +16484,12 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0.8036571, g: 0.5318974, b: 0.8415094, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -16455,7 +16497,7 @@ ParticleSystem:
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 0
+        ctime0: 58673
         ctime1: 65535
         ctime2: 0
         ctime3: 0
@@ -16472,7 +16514,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
@@ -22111,7 +22153,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 100
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 1
     rotation3D: 1
@@ -24192,7 +24234,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 1
+    enabled: 0
     strength:
       serializedVersion: 2
       minMaxState: 0
@@ -26271,13 +26313,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737178016}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.68923545, y: 0.15796998, z: 0.68923545, w: 0.15796998}
-  m_LocalPosition: {x: -2.42, y: 1.78, z: 7.39}
+  m_LocalRotation: {x: -0.70288295, y: 0.07717239, z: 0.70288295, w: 0.0771724}
+  m_LocalPosition: {x: -2.44, y: 1.68, z: 7.39}
   m_LocalScale: {x: 0.76278025, y: 0.4708713, z: 0.46287158}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -154.182, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -167.469, y: 90, z: 0}
 --- !u!1001 &1756063454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27020,6 +27062,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 171603751}
+    - targetCorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 171603752}
     - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 97162683}
@@ -27996,7 +28041,7 @@ MonoBehaviour:
   heightOffset: 2
   panelOffsetX: 0.5
   panelOffsetY: 0.1
-  moveDuration: 2
+  moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 0}
 --- !u!1 &1983169148 stripped
