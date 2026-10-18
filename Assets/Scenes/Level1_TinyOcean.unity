@@ -187,6 +187,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1040855928}
+    - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1040855931}
+    - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1040855930}
   m_SourcePrefab: {fileID: 100100000, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
 --- !u!4 &55750493 stripped
 Transform:
@@ -1166,9 +1172,6 @@ PrefabInstance:
       addedObject: {fileID: 825766684}
     - targetCorrespondingSourceObject: {fileID: 8771091787928289351, guid: ccf2dd1767e2ac847ba559063ae89e97, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 825766683}
-    - targetCorrespondingSourceObject: {fileID: 8771091787928289351, guid: ccf2dd1767e2ac847ba559063ae89e97, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 825766682}
   m_SourcePrefab: {fileID: -4161369568681901532, guid: ccf2dd1767e2ac847ba559063ae89e97, type: 3}
 --- !u!1001 &217204453
@@ -1338,10 +1341,11 @@ MonoBehaviour:
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
   audioSource: {fileID: 743111785}
-  distanceFromCamera: 2.5
+  distanceFromCamera: 3
   heightOffset: 0.5
   panelOffsetX: 0.55
   panelOffsetY: 0.1
+  panelDistance: 2
   moveDuration: 0.8
   lookSideWays: 1
   fishSwimScript: {fileID: 238464614}
@@ -1595,6 +1599,105 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08975506, y: 0.18738127, z: 0.2985096}
   m_Center: {x: 0.004453182, y: 0.0019608736, z: 0.06303692}
+--- !u!114 &287583862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266914634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291724b09f0dfeb42ae7ef217edd3063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishSprite: {fileID: 21300000, guid: 3bcb1543ce38c3144ad79d3bf7dfc154, type: 3}
+  fishInfoAudio: {fileID: 8300000, guid: c3c8ec32c035f124e92860b2b1e384b0, type: 3}
+  infoPanel: {fileID: 1319238695}
+  panelImageHolder: {fileID: 1319238697}
+  closeButton: {fileID: 134416769}
+  audioButton: {fileID: 1365125826}
+  audioSource: {fileID: 743111785}
+  distanceFromCamera: 3
+  heightOffset: 0
+  panelOffsetX: 1
+  panelOffsetY: 0.3
+  panelDistance: 2
+  moveDuration: 1
+  lookSideWays: 1
+  fishSwimScript: {fileID: 208982093}
+--- !u!114 &287583863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266914634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
 --- !u!4 &293840523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3910990755373119420, guid: eb4024f43e005f24986b3d35a4c85dea, type: 3}
@@ -2023,10 +2126,11 @@ MonoBehaviour:
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
   audioSource: {fileID: 743111785}
-  distanceFromCamera: 2.5
+  distanceFromCamera: 3
   heightOffset: 0.5
   panelOffsetX: 0.55
   panelOffsetY: 0.1
+  panelDistance: 2
   moveDuration: 0.8
   lookSideWays: 1
   fishSwimScript: {fileID: 1581256630}
@@ -2348,7 +2452,7 @@ MonoBehaviour:
   centerPosition: {x: 0, y: 0, z: 0}
   swimAreaSize: {x: 3, y: 0.1, z: 3}
   swimSpeed: 0.2
-  rotationSpeed: 1.5
+  rotationSpeed: 0.5
   reachDistance: 1.5
 --- !u!4 &436324592 stripped
 Transform:
@@ -3908,7 +4012,7 @@ MonoBehaviour:
   centerPosition: {x: 0, y: 0, z: 0}
   swimAreaSize: {x: 3, y: 0.1, z: 3}
   swimSpeed: 0.25
-  rotationSpeed: 1.5
+  rotationSpeed: 0.5
   reachDistance: 1.5
 --- !u!1001 &642557360
 PrefabInstance:
@@ -9425,15 +9529,15 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 3703b2a88ed4e9f48a704cd060d314c6, type: 2}
     - target: {fileID: -3910990755373119420, guid: b58a109e3a22a5e4bb3bbb68507362be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.83
+      value: -5.21
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: b58a109e3a22a5e4bb3bbb68507362be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.422
+      value: -0.989
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: b58a109e3a22a5e4bb3bbb68507362be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.44000006
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: b58a109e3a22a5e4bb3bbb68507362be, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9538,9 +9642,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1820623217}
-    - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1820623216}
     - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1820623219}
@@ -9658,6 +9759,10 @@ PrefabInstance:
     - target: {fileID: 3638158310860038381, guid: 5510fd63045e0cb4cb3c4bf6fcbb6b34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916732274036983846, guid: 5510fd63045e0cb4cb3c4bf6fcbb6b34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.299
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9803,103 +9908,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!82 &825766683
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825766680}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!65 &825766684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9939,11 +9947,12 @@ MonoBehaviour:
   panelImageHolder: {fileID: 1319238697}
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
-  audioSource: {fileID: 825766683}
+  audioSource: {fileID: 743111785}
   distanceFromCamera: 2.5
   heightOffset: 0.1
   panelOffsetX: 1
   panelOffsetY: 1
+  panelDistance: 2
   moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 1688285012}
@@ -10025,10 +10034,11 @@ MonoBehaviour:
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
   audioSource: {fileID: 743111785}
-  distanceFromCamera: 2.5
+  distanceFromCamera: 3
   heightOffset: 0.5
   panelOffsetX: 0.55
   panelOffsetY: 0.1
+  panelDistance: 2
   moveDuration: 0.8
   lookSideWays: 1
   fishSwimScript: {fileID: 1669750265}
@@ -10374,10 +10384,11 @@ MonoBehaviour:
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
   audioSource: {fileID: 743111785}
-  distanceFromCamera: 2.5
+  distanceFromCamera: 3
   heightOffset: 0.5
   panelOffsetX: 0.55
   panelOffsetY: 0.1
+  panelDistance: 2
   moveDuration: 0.8
   lookSideWays: 1
   fishSwimScript: {fileID: 919203144}
@@ -10763,9 +10774,6 @@ PrefabInstance:
       addedObject: {fileID: 955484135}
     - targetCorrespondingSourceObject: {fileID: 8771091787928289351, guid: ccf2dd1767e2ac847ba559063ae89e97, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 955484134}
-    - targetCorrespondingSourceObject: {fileID: 8771091787928289351, guid: ccf2dd1767e2ac847ba559063ae89e97, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 955484133}
   m_SourcePrefab: {fileID: -4161369568681901532, guid: ccf2dd1767e2ac847ba559063ae89e97, type: 3}
 --- !u!4 &955484131 stripped
@@ -10850,103 +10858,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!82 &955484134
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955484132}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!65 &955484135
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10982,15 +10893,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishSprite: {fileID: 21300000, guid: 36b4ffe5dc0ce5e4887fbb2019096044, type: 3}
   fishInfoAudio: {fileID: 8300000, guid: a16df280841e46f46813dc6b4f79b947, type: 3}
-  infoPanel: {fileID: 0}
-  panelImageHolder: {fileID: 0}
-  closeButton: {fileID: 0}
-  audioButton: {fileID: 0}
-  audioSource: {fileID: 955484134}
+  infoPanel: {fileID: 1319238695}
+  panelImageHolder: {fileID: 1319238697}
+  closeButton: {fileID: 134416769}
+  audioButton: {fileID: 1365125826}
+  audioSource: {fileID: 0}
   distanceFromCamera: 2.5
   heightOffset: 0.1
-  panelOffsetX: 2
-  panelOffsetY: 2
+  panelOffsetX: 1
+  panelOffsetY: 1
+  panelDistance: 2
   moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 2046571166}
@@ -11232,11 +11144,12 @@ MonoBehaviour:
   panelImageHolder: {fileID: 1319238697}
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
-  audioSource: {fileID: 987359216}
-  distanceFromCamera: 4
-  heightOffset: 0
+  audioSource: {fileID: 743111785}
+  distanceFromCamera: 3
+  heightOffset: 0.05
   panelOffsetX: 2.6
   panelOffsetY: 0.8
+  panelDistance: 2
   moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 987359219}
@@ -11417,6 +11330,105 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.07838631, y: 0.18469167, z: 0.29193115}
   m_Center: {x: 0.0000009536743, y: 0.0007029772, z: 0.06930828}
+--- !u!114 &1004058364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004058361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291724b09f0dfeb42ae7ef217edd3063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishSprite: {fileID: 21300000, guid: 3bcb1543ce38c3144ad79d3bf7dfc154, type: 3}
+  fishInfoAudio: {fileID: 8300000, guid: c3c8ec32c035f124e92860b2b1e384b0, type: 3}
+  infoPanel: {fileID: 1319238695}
+  panelImageHolder: {fileID: 1319238697}
+  closeButton: {fileID: 134416769}
+  audioButton: {fileID: 1365125826}
+  audioSource: {fileID: 743111785}
+  distanceFromCamera: 3
+  heightOffset: 0
+  panelOffsetX: 1
+  panelOffsetY: 0.3
+  panelDistance: 2
+  moveDuration: 1
+  lookSideWays: 1
+  fishSwimScript: {fileID: 1792518743}
+--- !u!114 &1004058365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004058361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
 --- !u!1001 &1015272004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11641,6 +11653,105 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08975506, y: 0.18738127, z: 0.2985096}
   m_Center: {x: 0.004453182, y: 0.0019608736, z: 0.06303692}
+--- !u!114 &1040855930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229558917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291724b09f0dfeb42ae7ef217edd3063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishSprite: {fileID: 21300000, guid: 3bcb1543ce38c3144ad79d3bf7dfc154, type: 3}
+  fishInfoAudio: {fileID: 8300000, guid: c3c8ec32c035f124e92860b2b1e384b0, type: 3}
+  infoPanel: {fileID: 1319238695}
+  panelImageHolder: {fileID: 1319238697}
+  closeButton: {fileID: 134416769}
+  audioButton: {fileID: 1365125826}
+  audioSource: {fileID: 743111785}
+  distanceFromCamera: 3
+  heightOffset: 0
+  panelOffsetX: 1
+  panelOffsetY: 1
+  panelDistance: 2
+  moveDuration: 1
+  lookSideWays: 1
+  fishSwimScript: {fileID: 2016377959}
+--- !u!114 &1040855931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229558917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
 --- !u!1 &1041522078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6522741751986946827, guid: e631cbc7bc7f4524880fb3eb88766f23, type: 3}
@@ -11839,10 +11950,11 @@ MonoBehaviour:
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
   audioSource: {fileID: 743111785}
-  distanceFromCamera: 2.5
+  distanceFromCamera: 3
   heightOffset: 0.5
   panelOffsetX: 0.55
   panelOffsetY: 0.1
+  panelDistance: 2
   moveDuration: 0.8
   lookSideWays: 1
   fishSwimScript: {fileID: 631414325}
@@ -11986,9 +12098,6 @@ PrefabInstance:
       addedObject: {fileID: 1115039829}
     - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1115039828}
-    - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1115039827}
   m_SourcePrefab: {fileID: 100100000, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
 --- !u!4 &1115039825 stripped
@@ -12073,103 +12182,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!82 &1115039828
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115039826}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &1115039829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12188,12 +12200,13 @@ MonoBehaviour:
   panelImageHolder: {fileID: 1319238697}
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
-  audioSource: {fileID: 1115039828}
+  audioSource: {fileID: 743111785}
   distanceFromCamera: 3
   heightOffset: 0
   panelOffsetX: 1
-  panelOffsetY: 1
-  moveDuration: 2
+  panelOffsetY: 0.3
+  panelDistance: 2
+  moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 169100816}
 --- !u!65 &1115039830
@@ -13129,6 +13142,7 @@ GameObject:
   - component: {fileID: 1192584207}
   - component: {fileID: 1192584206}
   - component: {fileID: 1192584205}
+  - component: {fileID: 1192584208}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -13145,8 +13159,8 @@ RectTransform:
   m_GameObject: {fileID: 1192584203}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1865478053}
   m_Father: {fileID: 503064754}
@@ -13219,6 +13233,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1192584208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192584203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1001 &1207611060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13738,6 +13771,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1004058362}
+    - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1004058365}
+    - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1004058364}
   m_SourcePrefab: {fileID: 100100000, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
 --- !u!1001 &1286864925
 PrefabInstance:
@@ -13769,7 +13808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: 87656cf4578cc3046a9ca42b71338369, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0279999
+      value: 3.07
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: 87656cf4578cc3046a9ca42b71338369, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14169,6 +14208,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 287583860}
+    - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 287583863}
+    - targetCorrespondingSourceObject: {fileID: 7472373412970396602, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 287583862}
   m_SourcePrefab: {fileID: 100100000, guid: 5906aac67a317b2408736df08fa8baf5, type: 3}
 --- !u!1001 &1318096434
 PrefabInstance:
@@ -14870,8 +14915,9 @@ MonoBehaviour:
   audioSource: {fileID: 743111785}
   distanceFromCamera: 2.5
   heightOffset: 0.3
-  panelOffsetX: 2
-  panelOffsetY: -0.3
+  panelOffsetX: 1
+  panelOffsetY: 0
+  panelDistance: 2.5
   moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 1422442419}
@@ -20079,10 +20125,11 @@ MonoBehaviour:
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
   audioSource: {fileID: 743111785}
-  distanceFromCamera: 2.5
+  distanceFromCamera: 3
   heightOffset: 0.5
   panelOffsetX: 0.55
   panelOffsetY: 0.1
+  panelDistance: 2
   moveDuration: 0.8
   lookSideWays: 1
   fishSwimScript: {fileID: 418710589}
@@ -20420,7 +20467,7 @@ MonoBehaviour:
   centerPosition: {x: 0, y: 0, z: 0}
   swimAreaSize: {x: 3, y: 0.1, z: 3}
   swimSpeed: 0.25
-  rotationSpeed: 1.5
+  rotationSpeed: 0.5
   reachDistance: 1.5
 --- !u!1001 &1590703534
 PrefabInstance:
@@ -20547,7 +20594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: b58a109e3a22a5e4bb3bbb68507362be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.348
+      value: -0.519
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: b58a109e3a22a5e4bb3bbb68507362be, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20839,7 +20886,7 @@ MonoBehaviour:
   centerPosition: {x: 0, y: 0, z: 0}
   swimAreaSize: {x: 3, y: 0.1, z: 3}
   swimSpeed: 0.2
-  rotationSpeed: 1.5
+  rotationSpeed: 0.5
   reachDistance: 1.5
 --- !u!4 &1676355794 stripped
 Transform:
@@ -21391,10 +21438,11 @@ MonoBehaviour:
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
   audioSource: {fileID: 743111785}
-  distanceFromCamera: 2.5
+  distanceFromCamera: 3
   heightOffset: 0.5
   panelOffsetX: 0.55
   panelOffsetY: 0.1
+  panelDistance: 2
   moveDuration: 0.8
   lookSideWays: 1
   fishSwimScript: {fileID: 1725480217}
@@ -26622,103 +26670,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08975506, y: 0.18738127, z: 0.2985096}
   m_Center: {x: 0.004453182, y: 0.0019608736, z: 0.06303692}
---- !u!82 &1820623216
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042846886}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &1820623217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26737,12 +26688,13 @@ MonoBehaviour:
   panelImageHolder: {fileID: 1319238697}
   closeButton: {fileID: 134416769}
   audioButton: {fileID: 1365125826}
-  audioSource: {fileID: 1820623216}
+  audioSource: {fileID: 743111785}
   distanceFromCamera: 3
   heightOffset: 0
   panelOffsetX: 1
-  panelOffsetY: 1
-  moveDuration: 2
+  panelOffsetY: 0.3
+  panelDistance: 2
+  moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 1807975847}
 --- !u!114 &1820623219
@@ -27177,14 +27129,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 386c98bf030575d4e977fe20d110a573, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c944218a197d26047a96dc1250b2d86d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28041,6 +27993,7 @@ MonoBehaviour:
   heightOffset: 2
   panelOffsetX: 0.5
   panelOffsetY: 0.1
+  panelDistance: 2
   moveDuration: 1
   lookSideWays: 1
   fishSwimScript: {fileID: 0}

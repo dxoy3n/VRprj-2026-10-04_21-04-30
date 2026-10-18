@@ -24,6 +24,7 @@ public class FishInteractable : MonoBehaviour
     public float heightOffset = 0.3f;
     public float panelOffsetX = 0.55f;      // Panel nằm lệch sang PHẢI cá bao nhiêu (mét)
     public float panelOffsetY = 0.1f;       // Panel nằm lệch lên TRÊN cá bao nhiêu (mét)
+    public float panelDistance = 2.0f;    
     public float moveDuration = 0.8f;       // Thời gian cá bay tới mặt camera (giây)
     public bool lookSideWays = true;
 
@@ -198,7 +199,10 @@ public class FishInteractable : MonoBehaviour
             if (infoPanel != null && cam != null)
             {
                 // Đặt Panel bên cạnh cá
-                Vector3 panelPos = targetPos + (cam.transform.right * panelOffsetX) + (cam.transform.up * panelOffsetY);
+                Vector3 panelPos = cam.transform.position
+                 + cam.transform.forward * panelDistance
+                 + cam.transform.right * panelOffsetX
+                 + cam.transform.up * panelOffsetY;
                 infoPanel.transform.position = panelPos;
 
                 infoPanel.transform.LookAt(infoPanel.transform.position + cam.transform.rotation * Vector3.forward,
