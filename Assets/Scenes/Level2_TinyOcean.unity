@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0, g: 0.45883504, b: 0.6679245, a: 1}
+  m_FogColor: {r: 0, g: 0.3771424, b: 0.690566, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -1415,7 +1415,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 252aacd0c2a6d7447b071169767f8032, type: 2}
     - target: {fileID: -3910990755373119420, guid: 8faa2cba33d560e49bb5450fc7fccfa9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.36
+      value: -4.42
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: 8faa2cba33d560e49bb5450fc7fccfa9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1849,7 +1849,7 @@ Transform:
   m_GameObject: {fileID: 355814347}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.4700003, y: 2, z: -0.76}
+  m_LocalPosition: {x: 7.37, y: 2, z: -0.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1869,7 +1869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerPosition: {x: 0, y: 0, z: 0}
-  swimAreaSize: {x: 20, y: 2, z: 10}
+  swimAreaSize: {x: 20, y: 2, z: 20}
   swimSpeed: 0.75
   rotationSpeed: 0.25
   reachDistance: 0.5
@@ -1979,7 +1979,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.21605544, g: 0.69886947, b: 0.9622642, a: 1}
+  m_Color: {r: 0, g: 0.76504636, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
@@ -2023,7 +2023,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 7907
+  m_ColorTemperature: 8574
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -8818,15 +8818,15 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: e8f0d2a51e5c52e4f8d6accbb5cd59b9, type: 2}
     - target: {fileID: -3910990755373119420, guid: 864709ad29307414388c7c8ded8746da, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.95
+      value: -3.909
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: 864709ad29307414388c7c8ded8746da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.39
+      value: 0.776
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: 864709ad29307414388c7c8ded8746da, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.37
+      value: 6.568
       objectReference: {fileID: 0}
     - target: {fileID: -3910990755373119420, guid: 864709ad29307414388c7c8ded8746da, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9114,7 +9114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerPosition: {x: 0, y: 0, z: 0}
-  swimAreaSize: {x: 15, y: 2, z: 15}
+  swimAreaSize: {x: 10, y: 2, z: 10}
   swimSpeed: 0.25
   rotationSpeed: 0.5
   reachDistance: 0.5
@@ -11658,7 +11658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerPosition: {x: 0, y: 0, z: 0}
-  swimAreaSize: {x: 11.2, y: 0.52, z: 15}
+  swimAreaSize: {x: 10, y: 0.52, z: 10}
   swimSpeed: 0.5
   rotationSpeed: 1.5
   reachDistance: 1.5
