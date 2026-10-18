@@ -47,6 +47,22 @@ public class StarfishManager : MonoBehaviour
         }
 
         FindKeyInScene(scene);
+        if (scene.name == "Level1_TinyOcean")
+        {
+            arrowGuide = null;
+            foreach (GameObject root in scene.GetRootGameObjects())
+            {
+                foreach (Transform t in root.GetComponentsInChildren<Transform>(true))
+                {
+                    if (t.CompareTag("ArrowGuide"))
+                    {
+                        arrowGuide = t.gameObject;
+                        break;
+                    }
+                }
+                if (arrowGuide != null) break;
+            }
+        }
         UpdateStarfishUI();
         CheckLevel1Progress();
         CheckKeyUnlock();
@@ -54,13 +70,13 @@ public class StarfishManager : MonoBehaviour
 
     void Start()
     {
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
         if (SceneManager.GetActiveScene().name == "Level1_TinyOcean")
         {
             PlayerPrefs.SetInt("StarfishCount", 0);
             PlayerPrefs.Save();
         }
-#endif
+#endif*/
         FindKeyInScene(SceneManager.GetActiveScene());
         UpdateStarfishUI();
         CheckLevel1Progress();
@@ -75,10 +91,23 @@ public class StarfishManager : MonoBehaviour
         keyObject = key != null ? key.gameObject : null;
     }
 
-    public void AddStarfish()
+    /* public void AddStarfish()
+     {
+         int currentCount = PlayerPrefs.GetInt("StarfishCount", 0) + 1;
+         PlayerPrefs.SetInt("StarfishCount", currentCount);
+         PlayerPrefs.Save();
+
+         UpdateStarfishUI();
+         CheckLevel1Progress();
+         CheckKeyUnlock();
+     }*/
+
+    public void AddStarfish(string id)
     {
-        int currentCount = PlayerPrefs.GetInt("StarfishCount", 0) + 1;
-        PlayerPrefs.SetInt("StarfishCount", currentCount);
+        if (PlayerPrefs.GetInt("Star_" + id, 0) == 1) return;
+
+        PlayerPrefs.SetInt("Star_" + id, 1);
+        PlayerPrefs.SetInt("StarfishCount", PlayerPrefs.GetInt("StarfishCount", 0) + 1);
         PlayerPrefs.Save();
 
         UpdateStarfishUI();
@@ -112,6 +141,11 @@ public class StarfishManager : MonoBehaviour
 
     void CheckKeyUnlock()
     {
+        if (PlayerPrefs.GetInt("ChestOpened", 0) == 1 && keyObject != null)
+        {
+            keyObject.SetActive(false);
+            return;
+        }
         int currentCount = PlayerPrefs.GetInt("StarfishCount", 0);
 
         if (SceneManager.GetActiveScene().name != "Level2_TinyOcean")

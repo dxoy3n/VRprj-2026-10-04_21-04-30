@@ -3,119 +3,82 @@ using UnityEngine;
 public class ChestScript : MonoBehaviour
 {
     [Header("UI Settings")]
-    public GameObject ChestPanel; // Kéo Panel (Yes/No) vào đây
+    public GameObject ChestPanel;
 
-    [Header("Animation Settings")]
-    //public Animator chestAnimator; // Kéo Animator của rương vào đây
-    public string openTriggerName = "OpenChest"; // Tên Trigger trong Animator của rương
+    [Header("Lid Rotator Settings")]
+    public ChestLid lid;
+
+    [Header("Reward Settings")]
+    public GameObject Reward;
 
     private bool isPlayerNearby = false;
     private bool isOpened = false;
 
     void Start()
     {
-        if (ChestPanel != null)
+        if (ChestPanel != null) ChestPanel.SetActive(false);
+        if (Reward != null) Reward.SetActive(false);
+
+        // Đã mở rương trước đó: chỉ đánh dấu đã mở, nắp do ChestLid tự đặt ở trạng thái mở
+        if (PlayerPrefs.GetInt("ChestOpened", 0) == 1)
         {
-            ChestPanel.SetActive(false); // Ban đầu ẩn panel đi
+            isOpened = true;
         }
     }
 
-    // Khi người chơi đi vào vùng Trigger của rương
+    private bool IsPlayer(Collider other)
+    {
+        return other.CompareTag("Player") || other.name.Contains("Main Camera") || other.name.Contains("XR");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        // Kiểm tra điều kiện: Tag Player, hoặc tên chứa Main Camera / XR trong VR
-        if ((other.CompareTag("Player") || other.name.Contains("Main Camera") || other.name.Contains("XR")) && !isOpened)
+        if (!IsPlayer(other) || isOpened) return;
+
+        isPlayerNearby = true;
+
+        int currentStarfish = PlayerPrefs.GetInt("StarfishCount", 0);
+        if (currentStarfish >= 6)
         {
-            isPlayerNearby = true;
-
-            // Kiểm tra xem người chơi đã thu thập đủ 6 sao biển hay chưa
-            int currentStarfish = PlayerPrefs.GetInt("StarfishCount", 0);
-
-            if (currentStarfish >= 6)
-            {
-                if (ChestPanel != null)
-                {
-                    ChestPanel.SetActive(true); // Hiển thị panel lựa chọn (Yes/No)
-                }
-            }
-            else
-            {
-                Debug.Log("Rương đang khóa! Bạn cần thu thập đủ 6 sao biển để mở khóa.");
-            }
+            if (ChestPanel != null) ChestPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Rương đang khóa! Bạn cần thu thập đủ 6 sao biển để mở khóa.");
         }
     }
 
-    // Khi người chơi rời khỏi vùng Trigger của rương
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") || other.name.Contains("Main Camera") || other.name.Contains("XR"))
-        {
-            isPlayerNearby = false;
-            if (ChestPanel != null)
-            {
-                ChestPanel.SetActive(false); // Ẩn panel khi đi ra xa
-            }
-        }
+        if (!IsPlayer(other)) return;
+
+        isPlayerNearby = false;
+        if (ChestPanel != null) ChestPanel.SetActive(false);
     }
-
-    // Hàm gọi khi bấm nút Yes trên UI Panel
-    [Header("Lid Rotator Settings")]
-    public ChestLid lid; // Kéo đối tượng chứa script ChestLid vào đây
-
-    [Header("Reward Settings")]
-    public GameObject Reward; // Kéo Panel chứa ảnh voucher mới vào đây
 
     public void OnClickYes()
     {
-        if (isPlayerNearby && !isOpened)
-        {
-            isOpened = true;
+        if (!isPlayerNearby || isOpened) return;
 
-            // 1. MỞ NẮP RƯƠNG
-            if (lid != null)
-            {
-                lid.OpenLid();
-            }
-            else
-            {
-                Debug.LogError("Chưa kéo ChestLid vào ô Lid trong ChestScript!");
-            }
+        isOpened = true;
 
-            // 2. Tắt Panel Yes/No
-            if (ChestPanel != null)
-            {
-                ChestPanel.SetActive(false);
-            }
+        PlayerPrefs.SetInt("ChestOpened", 1);
+        PlayerPrefs.Save();
 
-            // 3. Hiện voucher sau 1.5 giây để kịp thấy nắp mở
-            Invoke("ShowReward", 1.5f);
+        if (lid != null) lid.OpenLid();
+        if (ChestPanel != null) ChestPanel.SetActive(false);
+        if (Reward != null) Reward.SetActive(true);
 
-            Debug.Log("Đã mở rương thành công");
-        }
+        Debug.Log("Đã mở rương thành công");
     }
 
-    void ShowReward()
-    {
-        if (Reward != null)
-        {
-            Reward.SetActive(true);
-        }
-    }
-
-    // Hàm gọi khi bấm nút No trên UI Panel
     public void OnClickNo()
     {
-        if (ChestPanel != null)
-        {
-            ChestPanel.SetActive(false); // Tắt panel theo yêu cầu
-        }
+        if (ChestPanel != null) ChestPanel.SetActive(false);
     }
-    // Hàm gọi khi bấm nút đóng (X / Close / Claim) trên panel voucher
+
     public void OnClickCloseReward()
     {
-        if (Reward != null)
-        {
-            Reward.SetActive(false);
-        }
+        if (Reward != null) Reward.SetActive(false);
     }
 }

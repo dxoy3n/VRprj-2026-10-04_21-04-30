@@ -1,12 +1,11 @@
 using UnityEngine;
-using System.Collections;
 
 public class ChestLid : MonoBehaviour
 {
     [Header("Cài đặt Nắp Rương")]
-    public Transform lidTransform; // Kéo đối tượng nắp rương (Lid) vào đây
-    public Vector3 openRotation = new Vector3(-90f, 0f, 0f); // Góc xoay khi mở (có thể thay đổi số đo cho khớp với rương của bạn)
-    public float rotationSpeed = 2f; // Tốc độ xoay nắp rương
+    public Transform lidTransform;
+    public Vector3 openRotation = new Vector3(-90f, 0f, 0f);
+    public float rotationSpeed = 2f;
 
     private Quaternion closedRotation;
     private Quaternion targetRotation;
@@ -14,24 +13,33 @@ public class ChestLid : MonoBehaviour
 
     void Start()
     {
-        if (lidTransform != null)
+        if (lidTransform == null)
         {
-            // Lưu lại góc đóng ban đầu của nắp
-            closedRotation = lidTransform.localRotation;
-            targetRotation = closedRotation * Quaternion.Euler(openRotation);
+            Debug.LogError("ChestLid: chưa kéo lidTransform vào Inspector!");
+            return;
+        }
+
+        closedRotation = lidTransform.localRotation;
+        targetRotation = closedRotation * Quaternion.Euler(openRotation);
+
+        int opened = PlayerPrefs.GetInt("ChestOpened", 0);
+        Debug.Log("ChestLid Start, ChestOpened = " + opened);
+
+        if (opened == 1)
+        {
+            lidTransform.localRotation = targetRotation;
         }
     }
 
     void Update()
     {
-        // Khi lệnh mở được kích hoạt, nắp rương sẽ xoay mượt mà từ đóng sang mở
         if (shouldOpen && lidTransform != null)
         {
-            lidTransform.localRotation = Quaternion.Slerp(lidTransform.localRotation, targetRotation, Time.deltaTime * rotationSpeed);
+            lidTransform.localRotation = Quaternion.Slerp(
+                lidTransform.localRotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
     }
 
-    // Hàm này sẽ được gọi từ ChestScript khi bấm nút Yes
     public void OpenLid()
     {
         shouldOpen = true;
