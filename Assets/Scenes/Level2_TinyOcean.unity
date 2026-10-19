@@ -762,6 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7485424e3ffad4a9240e09f19e30f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starId: L2_3
 --- !u!114 &191816228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1171,6 +1172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7485424e3ffad4a9240e09f19e30f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starId: L2_2
 --- !u!114 &231621279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12213,6 +12215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7485424e3ffad4a9240e09f19e30f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starId: L2_1
 --- !u!114 &1286712901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15936,7 +15939,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChestPanel: {fileID: 342203909}
-  openTriggerName: OpenChest
   lid: {fileID: 1838523436}
   Reward: {fileID: 381042768}
 --- !u!65 &1844830280
@@ -15958,8 +15960,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.32, y: 2.209312, z: 2.1462474}
-  m_Center: {x: 0, y: 0.94, z: 0.29}
+  m_Size: {x: 3.32, y: 3.43, z: 3.33}
+  m_Center: {x: 0, y: 0.94, z: 0.69}
 --- !u!1 &1859474637 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8771091787928289351, guid: 2280fad0bd6e28e4f8c310035806e3a7, type: 3}
