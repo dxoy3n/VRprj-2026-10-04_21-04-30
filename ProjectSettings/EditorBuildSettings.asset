@@ -15,6 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2_TinyOcean.unity
     guid: c33da71550ed0cc41b49121c9ea8ccb8
   m_configObjects:
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 1a3bec502ef56f64fa957a6e22411b15, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9ba9c86c18e58b04cbbf0ca727dc8d0f, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 10e809b6496f20647aeba4b9459e4a69, type: 2}

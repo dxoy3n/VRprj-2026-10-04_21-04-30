@@ -25,7 +25,6 @@ public class StarfishManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            return;
         }
     }
 
@@ -39,68 +38,64 @@ public class StarfishManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (starfishText == null)
-        {
-            starfishText = FindFirstObjectByType<TextMeshProUGUI>();
-        }
-
-        FindKeyInScene(scene);
-        if (scene.name == "Level1_TinyOcean")
-        {
-            arrowGuide = null;
-            foreach (GameObject root in scene.GetRootGameObjects())
-            {
-                foreach (Transform t in root.GetComponentsInChildren<Transform>(true))
-                {
-                    if (t.CompareTag("ArrowGuide"))
-                    {
-                        arrowGuide = t.gameObject;
-                        break;
-                    }
-                }
-                if (arrowGuide != null) break;
-            }
-        }
-        UpdateStarfishUI();
-        CheckLevel1Progress();
-        CheckKeyUnlock();
-    }
-
     void Start()
     {
-/*#if UNITY_EDITOR
-        if (SceneManager.GetActiveScene().name == "Level1_TinyOcean")
+        FindSceneReferences(SceneManager.GetActiveScene());
+        RefreshAll();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindSceneReferences(scene);
+        RefreshAll();
+    }
+
+    // Tìm lại các object của scene hiện tại (vì scene cũ bị hủy khi chuyển scene)
+    void FindSceneReferences(Scene scene)
+    {
+        starfishText = FindFirstObjectByType<TextMeshProUGUI>();
+        keyObject = null;
+        arrowGuide = null;
+
+        if (scene.name == "Level2_TinyOcean")
+            keyObject = FindObjectWithTag(scene, "keyObject");
+
+        if (scene.name == "Level1_TinyOcean")
+            arrowGuide = FindObjectWithTag(scene, "ArrowGuide");
+    }
+
+    GameObject FindObjectInScene(Scene scene, string namePart)
+    {
+        foreach (GameObject root in scene.GetRootGameObjects())
         {
-            PlayerPrefs.SetInt("StarfishCount", 0);
-            PlayerPrefs.Save();
+            foreach (Transform t in root.GetComponentsInChildren<Transform>(true))
+            {
+                if (t.name.ToLower().Contains(namePart.ToLower()))
+                    return t.gameObject;
+            }
         }
-#endif*/
-        FindKeyInScene(SceneManager.GetActiveScene());
+        return null;
+    }
+
+    GameObject FindObjectWithTag(Scene scene, string tag)
+    {
+        foreach (GameObject root in scene.GetRootGameObjects())
+        {
+            foreach (Transform t in root.GetComponentsInChildren<Transform>(true))
+            {
+                if (t.CompareTag(tag))
+                    return t.gameObject;
+            }
+        }
+        return null;
+    }
+
+    void RefreshAll()
+    {
         UpdateStarfishUI();
         CheckLevel1Progress();
         CheckKeyUnlock();
     }
-
-    void FindKeyInScene(Scene s)
-    {
-        if (s.name != "Level2_TinyOcean") return;
-
-        KeyEffects key = FindFirstObjectByType<KeyEffects>(FindObjectsInactive.Include);
-        keyObject = key != null ? key.gameObject : null;
-    }
-
-    /* public void AddStarfish()
-     {
-         int currentCount = PlayerPrefs.GetInt("StarfishCount", 0) + 1;
-         PlayerPrefs.SetInt("StarfishCount", currentCount);
-         PlayerPrefs.Save();
-
-         UpdateStarfishUI();
-         CheckLevel1Progress();
-         CheckKeyUnlock();
-     }*/
 
     public void AddStarfish(string id)
     {
@@ -110,75 +105,55 @@ public class StarfishManager : MonoBehaviour
         PlayerPrefs.SetInt("StarfishCount", PlayerPrefs.GetInt("StarfishCount", 0) + 1);
         PlayerPrefs.Save();
 
-        UpdateStarfishUI();
-        CheckLevel1Progress();
-        CheckKeyUnlock();
+        RefreshAll();
     }
 
     public void UpdateStarfishUI()
     {
         int currentCount = PlayerPrefs.GetInt("StarfishCount", 0);
         if (starfishText != null)
-        {
             starfishText.text = "Tổng sao biển: " + currentCount + "/" + totalStarfishNeeded;
-        }
     }
 
     void CheckLevel1Progress()
     {
+        if (arrowGuide == null) return;
+
         int currentCount = PlayerPrefs.GetInt("StarfishCount", 0);
-        if (SceneManager.GetActiveScene().name == "Level1_TinyOcean")
-        {
-            if (arrowGuide != null)
-                arrowGuide.SetActive(currentCount >= level1StarfishTarget);
-        }
-        else
-        {
-            if (arrowGuide != null)
-                arrowGuide.SetActive(false);
-        }
+        bool isLevel1 = SceneManager.GetActiveScene().name == "Level1_TinyOcean";
+        arrowGuide.SetActive(isLevel1 && currentCount >= level1StarfishTarget);
     }
 
     void CheckKeyUnlock()
     {
-        if (PlayerPrefs.GetInt("ChestOpened", 0) == 1 && keyObject != null)
+        if (keyObject == null) return;
+
+        // Đã mở rương thì chìa khóa không hiện nữa
+        if (PlayerPrefs.GetInt("ChestOpened", 0) == 1)
         {
             keyObject.SetActive(false);
             return;
         }
-        int currentCount = PlayerPrefs.GetInt("StarfishCount", 0);
 
-        if (SceneManager.GetActiveScene().name != "Level2_TinyOcean")
+        int currentCount = PlayerPrefs.GetInt("StarfishCount", 0);
+        bool isLevel2 = SceneManager.GetActiveScene().name == "Level2_TinyOcean";
+
+        if (!isLevel2 || currentCount < totalStarfishNeeded)
         {
-            if (keyObject != null) keyObject.SetActive(false);
+            keyObject.SetActive(false);
             return;
         }
 
-        if (currentCount >= totalStarfishNeeded)
-        {
-            if (keyObject != null)
-            {
-                keyObject.SetActive(true);
+        keyObject.SetActive(true);
 
-                Camera mainCam = Camera.main;
-                if (mainCam != null)
-                {
-                    Vector3 spawnPosition = mainCam.transform.position + mainCam.transform.forward * 1.2f;
-                    spawnPosition.y = mainCam.transform.position.y - 0.05f;
-
-                    keyObject.transform.position = spawnPosition;
-                    keyObject.transform.rotation = mainCam.transform.rotation;
-                }
-            }
-            else
-            {
-                Debug.LogError("keyObject is NULL! Không tìm thấy KeyEffects nào trong Level2_TinyOcean.");
-            }
-        }
-        else
+        Camera mainCam = Camera.main;
+        if (mainCam != null)
         {
-            if (keyObject != null)
-                keyObject.SetActive(false);
+            Vector3 spawnPosition = mainCam.transform.position + mainCam.transform.forward * 1.2f;
+            spawnPosition.y = mainCam.transform.position.y - 0.05f;
+
+            keyObject.transform.position = spawnPosition;
+            keyObject.transform.rotation = mainCam.transform.rotation;
         }
     }
 }
